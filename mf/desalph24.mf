@@ -1,0 +1,56 @@
+%  desalph24.mf  Parameter File for Deseret Alphabet
+%
+%  Kenneth R. Beesley
+%  19, allee des Frenes
+%  38240 MEYLAN, France
+%  beesley@wanadoo.fr
+%
+%  Xerox Research Centre Europe
+%  6, chemin de Maupertuis
+%  38240 MEYLAN, France
+%  ken.beesley@xrce.xerox.com
+%
+%  Copyright (c) 2002.  Kenneth R. Beesley.  All Rights Reserved.
+
+%  For goals, philosophy and inspiration, see desalph.txt
+
+% This is a Parameter File.  It sets various font-modifying variables and
+%    then includes the driver file desalph.mf, which (via further
+%    includes, contains the instructions for drawing the characters
+
+font_size 24pt#;     % nominal 24 point size for line-up with photos of
+                     % the Haskell journal manuscript
+em# := 24pt# ;       % used at end of desalph.mf
+
+ucht# := 14.5pt# ;   % height of uc letters
+% lcht is derived from this
+
+u# := pt# ;          % unit for specifying width
+s# := 0pt#;          % when generating smaller fonts, may need to
+                     % increase letterspacing using values > 0
+vo# := .1pt# ;       % vertical overshoot
+ho# := vo# ;         % horizontal overshoot
+
+% the metafont will allow for almost monowidth pencil-like fonts as well
+% as variants with thickened lines on downstrokes
+
+% select alphabet variant here
+numeric variant ;
+#variant := 1 ;       % Haskell diary variant
+#variant := 2 ;
+variant := 3 ;
+
+% define chars in terms of thin and thick; allow for pen-like
+% effects in some font variants (for pencil effect, just make
+% them all the same width
+
+uchair#  := .2u# ;
+ucthin#  := .5u# ;
+ucthick# :=   u# ;
+% lower-case pen thicknesses are derived from these
+
+slant := 0 ;         % we will probably want to add a bit of slant
+                     % to simulate Haskell's printing
+input desalph
+
+bye

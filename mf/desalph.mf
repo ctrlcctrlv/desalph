@@ -1,0 +1,100 @@
+%  desalp.mf
+
+%  driver file for Deseret Alphabet
+
+%  Kenneth R. Beesley
+%  19, allee des Frenes
+%  38240 MEYLAN, France
+%  beesley@wanadoo.fr
+
+%  Xerox Research Centre Europe
+%  6, chemin de Maupertuis
+%  38240 MEYLAN, France
+%  ken.beesley@xrce.xerox.com
+%
+%  Copyright (c) 2002 Kenneth R. Beesley.  All Rights Reserved.
+
+mode_setup;
+if unknown slant: slant:= 0 else: currenttransform:=
+  identity slanted slant yscaled aspect_ratio fi;
+
+% here put any variables whose values is derived in
+% a consistent way from Parameters for all fonts derived
+% from the metafont
+
+stemspace#  := .7u# ;  % for placing a solid side bar
+curvespace# := .4u# ;    % for placing a side curve
+
+numeric barline ;
+barratio := .55 ;    % barheight as ratio of height (ucht or lcht)
+ucbarht# := barratio * ucht# ;
+
+
+% pixelization
+
+define_pixels(s, u, em, ucht,
+  stemspace, curvespace,
+  ucbarht, lcbarht) ;
+%define_whole_pixels() ;
+%define_whole_vertical_pixels() ;
+
+% define_blacker_pixels for pen dimentions
+%define_blacker_pixels(hair, thin, thick) ;
+
+%      need to pickup a pen before the following two
+% define_good_x_pixels for placing edges of pen on good x pixels
+%    given the _center_ value
+% define_good_x_pixels() ;
+% define_good_y_pixels for placing edges of pen on good y pixels
+%    tiven the _center_ value
+% define_good_y_pixels(ucbarht, lcbarht) ;
+
+define_corrected_pixels(vo) ;
+define_horizontal_corrected_pixels(ho) ;
+
+% macros--give uc and lc the same nominal height
+%         as arguments to these macros
+
+def beginucdachar(expr code, unit_width) =
+  beginchar(code, unit_width*u#+2s#, ucht#, 0) ;
+    barht# := ucbarht# ;
+    define_pixels(barht) ;
+    hair# := uchair# ;
+    thin# := ucthin# ;
+    thick# := ucthick# ;
+    define_blacker_pixels(hair, thin, thick) ;
+    pickup pencircle enddef ;
+
+def beginlcdachar(expr code, unit_width) =
+  beginchar(code, (.73*unit_width*u#)+2s#, .7ucht#, 0) ;
+    barht# := .7ucbarht# ;
+    define_pixels(barht) ;
+    hair# := .8uchair# ;
+    thin# := .8ucthin# ;
+    thick# := .8ucthick# ;
+    define_blacker_pixels(hair, thin, thick) ;
+  pickup pencircle enddef ;
+
+% extract the encoding into a separate file
+input jjencoding
+
+% desalphchars specifies the width of each char, then
+% calls the draw macros (a single draw macro for upper-case
+% and lower-case
+input desalphchars
+
+% all this stuff needs to be reviewed
+font_quad := em# ;
+font_normal_space := .5em ;
+font_normal_stretch := .25em# ;
+font_normal_shrink := .125em# ;
+font_identifier:="DESALPH" if slant<>0: & "SL" fi ;
+font_coding_scheme:="???" ;
+
+% logocomplet example shows
+% font_quad:=18u#+2s# ;   % 18u is width of widest char
+% font_normal_space:=6u#+2s#;
+% font_normal_stretch:=3u#;
+% font_normal_shrink:=2u#;
+
+end

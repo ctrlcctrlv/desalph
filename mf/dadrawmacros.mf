@@ -1,0 +1,1351 @@
+%  dadrawmacros.mf
+%
+%  macros to draw letter shapes (common to u.c. and l.c.)
+%
+%  Kenneth R. Beesley
+%  19, allee des Frenes
+%  38240 MEYLAN, France
+%  beesley@wanadoo.fr
+
+%  Xerox Research Centre Europe
+%  6, chemin de Maupertuis
+%  38240 MEYLAN, FRANCE
+%  ken.beesley@xrce.xerox.com
+%
+%  Copyright (c) 2002 Kenneth R. Beesley.  All Rights Reserved.
+
+def draw_longi =
+  x0 = stemspace + .5thin ;
+  x4 = stemspace + .5thin ;
+  x1 = x3 = .5w ;
+  x2 = w - curvespace - .5thick ;
+  
+  y0 = .75h ;
+  y1 = h -.5thin + vo ;
+  y2 = .5h ;
+  y3 = 0 + .5thin - vo ;
+
+  penpos0(thin,-10) ;
+  penpos1(thin,-90) ;
+  penpos2(thick,-180) ;
+  penpos3(thin,90) ;
+  penpos4(thin,0) ;
+  penpos5(thin,-90) ;
+
+  path p ;
+  p := z0..z1{right}..z2{down}..z3 ;
+  path q ;
+  q := (0,.9barht)..(w,.9barht) ;
+
+  z5 = p intersectionpoint q ;
+  
+  y4 = .5[y3,y5] ;
+
+  % turningcheck := 0;
+
+  % this gives a strange path
+%  penstroke z0e..{right}z1e..{down}z2e..{left}z3e..{up}z4e..z5e ;
+
+  % this gives a strange path
+%   penstroke z0e..z1e..z2e..z3e..z4e..z5e ;
+
+  % this one is OK
+% filldraw  z0l..z1l..z2l..z3l..z4l..tension 1.2..{curl .5}z5l--z5r{curl .5}..tension 1.2..z4r..z3r..z2r..z1r..z0r--cycle;
+
+  % try drawing the path counterclockwise
+  % this works
+  penstroke z5e..z4e..z3e..z2e..z1e..z0e ;
+    
+  labels(range 0 thru 5) ;
+enddef ;
+
+def draw_longe =
+  x0 = 0 ;
+  x1 = curvespace + 1.3thin ;
+  x7 = curvespace + .5thin ;
+  x2 = x6 = .5w ;
+  x4 = .4w ;
+  x3 = w - stemspace - 1.3thin ;
+  x5 = w - stemspace - .5thin;
+
+  y0 = barht ;
+  y1 = .8h ;
+  y2 = h -.5thin + vo ;
+  y3 = .5[y2,y4] ;
+  y4 = barht ;
+  y5 = .5[y4,y6] ;
+  y6 = .5thin - vo ;
+  y7 = .2h ;
+
+  z44 = z4 ;
+
+  path p ;
+  p := z0{up}..z1..z2..z3..{left}z4 ;
+  pair pdir ;
+  pdir = direction 1 of p ;
+
+  path q ;
+  q := z44{right}..z5..z6..z7..{up}z0 ;
+  pair qdir ;
+  qdir = direction 3 of q ;
+  
+  penpos1(thin,150) ;
+  penpos2(thin,90) ;
+  penpos3(thick,0) ;
+  penpos4(thin,-90) ;
+
+  penpos44(thin, 90) ;
+  penpos5(thick,0) ;
+  penpos6(thin,-90) ;
+  penpos7(thin,-150) ;
+
+  penstroke z1e{pdir}..z2e..z3e..{left}z4e ;
+  penstroke z44e{right}..z5e..z6e..{qdir}z7e ;
+  
+  labels (range 0 thru 7) ;
+enddef ;
+
+def draw_longa =
+  x0 = x4 = .45w ;
+  x2 = .6w ;
+  x1 = stemspace + .9thick ;
+  x3 = stemspace + .5thick ;
+  x5 = w - curvespace - .5thin ;
+
+  y0 = h - .5thin + vo ;
+  y1 = .5[y0, y2] ;
+  y2 = barht ;
+  y3 = .5[y2, y4] ;
+  y4 = .5thin -vo ;
+  % y5 = .5h ;
+  y5 = barht ;
+
+  z22 = z2 ;
+
+  penpos0(thin,90) ;
+  penpos1(.9thick, 180) ;
+  penpos2(thin,-90) ;
+
+  penpos22(thin, 90) ;
+  penpos3(thick,180) ;
+  penpos4(thin,-90) ;
+  penpos5(thin,0) ;
+
+  penstroke z0e{left}..z1e..{right}z2e ;
+  penstroke z22e{left}..z3e..{right}z4e..{up}z5e..{left}z0e ;
+  
+  labels (range 0 thru 5) ;
+enddef ;
+
+def draw_longaw =
+  x1 = .5w ;
+  x2 = curvespace + .5thick ;
+  x3 = .5w ;
+  x4 = w - curvespace - .5thin ;
+  x5 = .6[x8, x6] ;
+  x6 = .48w ;
+  x8 = w - curvespace + ho ;
+
+  y1 = h ;
+  y2 = y4 = .5h ;
+  y3 = .5thin -vo ;
+  y5 = .98h ;
+  y6 = .98h ;
+  y8 = .52h ;
+  z7 = z5 reflectedabout(z8, z6) ;
+
+  penpos1(hair,90) ;
+  penpos2(thick,180) ;
+  penpos3(thin,-90) ;
+  penpos4(thin,0) ;
+  penpos5(thin,45) ;
+  penpos6(thin,135) ;
+  penpos7(thin,175) ;
+  penpos8(hair,-80) ;
+  penstroke z1e{left}..z2e..z3e..z4e..z5e..z6e..z7e..z8e ;
+  labels (range 1 thru 8) ;
+enddef ;
+
+def draw_longo =
+  x1 = x3 = .5w ;
+  x2 = curvespace + .5thick ;
+  x4 = w - curvespace - .5thin ;
+
+  y1 = h -.5thin + vo ;
+  y2 = y4 = .5h ;
+  y3 = .5thin -vo ;
+
+  penpos1(thin,90) ;
+  penpos2(thick,180) ;
+  penpos3(thin,-90) ;
+  penpos4(thin,0) ;
+  
+  penstroke z1e..z2e..z3e..z4e..cycle ;
+  labels(range 1 thru 4) ;
+enddef ;
+
+def draw_longu =
+  x1 = .61w ;
+  x3 = .5[x2l, x4l] ;
+  x2 = curvespace + .5thick ;
+  x4 = w - curvespace - .5thin ;
+  x5 = x3 ; ;
+
+  y1 = h - .5thin + vo ;
+  y2 = y4 = .5h ;
+  y3 = .5thin -vo ;
+  y5 = .86h ;
+
+  z33 = (x3,0) ;
+
+  penpos1(.8thin,90) ;
+  penpos2(thick,180) ;
+  penpos3(thin,-90) ;
+  penpos4(thin,0) ;
+
+  path o ;
+  o := z1..z2..z3..z4..cycle ;
+
+  z45 = point 3.85 of o ;
+  pair odir ;
+  odir = direction 3.8 of o ;
+
+  penpos45(thin, 80) ;
+  penpos5(thin, -180) ;
+  penpos33(thin, -180) ;
+
+  penstroke z1e{left}..tension .9..z2e..z3e..{up}z4e..{odir}z45e
+  ..tension .8..{down}z5e--z33e ;
+
+  
+  labels(range 1 thru 5, 45) ;
+enddef ;
+
+def draw_shorti =
+  x1 = x4 = x2 = .5w ;
+  x3 = curvespace - ho ;
+  x5 = w - curvespace + ho ;
+
+  y1 = h + vo ;
+  y2 = - vo ;
+  y4 = .7h ;
+
+  z4 - z3 = z5 - z4 ;
+
+  z4 - z3 = whatever * dir -30 ;
+
+  z44 = z4 ;
+
+  penpos1(1.2thin,20) ;
+  penpos4(1.2thin, 20) ;
+  penpos2(1.2thin, 20) ;
+
+  penstroke z1e--z4e--z2e ;
+
+  penpos3(.9thick, 90) ;
+  penpos44(.8thick, 90) ;
+  penpos5(.9thick, 90) ;
+
+  penstroke z3e--z44e--z5e ;
+
+  labels(range 1 thru 5) ;
+enddef ;
+
+def draw_shorte =
+  x1r = x12r = x2r = w - stemspace ;
+  x23 = .5[x3,x2];
+  x3 = curvespace ;
+
+  y1 = h + vo ;
+  y12 = .2h ;
+  y2 = y3 = -vo ;
+  y23 = .15h ;
+
+  x22 = x1 ;
+  y22l = -vo ;
+
+  penpos1(1.2thin, 0) ;
+  penpos12(1.2thin,0) ;
+  penpos2(.6thin, 0) ;
+
+  penstroke z1e--z12e--z2e ;
+
+  penpos3(thin, -130) ;
+  penpos23(1.8thin, 90) ;
+  penpos22(thin, 90) ;
+
+  penstroke z3e..z23e..z22e ;
+
+  labels(range 1 thru 3) ;
+enddef ;
+
+def draw_shorta =
+  x1r = x12r = x2r = w - stemspace ;
+  x3 = curvespace - ho ;
+
+  y1 = h + vo ;
+  y12 = .2h ;
+  y2 = 0 ;
+  
+  x22 = x2 + .5thin ;
+  y22 = ho ;
+
+  penpos1(1.2thin, 0) ;
+  penpos12(1.2thin,0) ;
+  penpos2(thin, 0) ;
+
+  penstroke z1e--z12e--z2e ;
+
+  z2 - z3 = whatever * dir -40 ;
+  
+  penpos3(thick, 90) ;
+  penpos22(.9thick, 90) ;
+
+  penstroke z3e--z22e ;
+
+  labels(range 1 thru 2) ;
+enddef ;
+
+def draw_shortaw =
+  x1r = x12r = x2r = w - stemspace  ;
+  x3 = curvespace - ho ;
+  x5 = .6[x3,x2] ;
+  
+  y1 = h + vo ;
+  y12 = .2h ;
+  y2 = 0 - vo ;
+  y3r = y5r ;
+  y4l = -vo ;
+
+  x22 = x2r ;
+  y22l = y2 ;
+  
+  penpos1(1.2thin, 0) ;
+  penpos12(1.2thin,0) ;
+  penpos2(thin, 0) ;
+
+  penstroke z1e--z12e--z2e ;
+
+  z22 - z5 = whatever * dir -50 ;
+  
+  penpos5(thick, 90) ;
+  penpos22(.9thick, 90) ;
+
+  penstroke z5e--z22e ;
+
+  z10 = z5l ;
+  unfill z2r--z10--(x10,-vo)--cycle ;
+
+  z4 - z3 = whatever * dir -50 ;
+
+  penpos3(thick, 90) ;
+  penpos4(thick, 90) ;
+
+  penstroke z3e--z4e ;
+
+  z44 = z4 ;
+  z55 = z5 ;
+
+  penpos44(thick, 90) ;
+  penpos55(thick, 90) ;
+
+  penstroke z44e--z55e ;
+
+  labels(range 1 thru 5) ;
+enddef ;
+
+def draw_shorto =
+  x1l = x12l = x2l = stemspace ;
+  x23 = .5[x3,x2];
+  x3 = w - curvespace ;
+
+  y1 = - vo ;
+  y12 = .8h ;
+  y2 = h + vo ;
+  y3 = h + vo ;
+  y23 = .85h ;
+
+  x22 = x1 ;
+  y22l = h + vo ;
+
+  penpos1(1.2thin, 0) ;
+  penpos12(1.2thin,0) ;
+  penpos2(.6thin, 0) ;
+
+  penstroke z1e--z12e--z2e ;
+
+  penpos3(thin, -80) ;
+  penpos23(1.7thin, -90) ;
+  penpos22(thin, -90) ;
+
+  penstroke z3e..z23e..z22e ;
+
+  labels(range 1 thru 3, 23) ;
+enddef ;
+
+def draw_shortu =
+  x1 = x2 = x5 = w - stemspace -.5thin ;
+  x3 = .5[x4,x2] ;
+  x4 = curvespace + .5thin ;
+
+  y1 = -vo ;
+  y2 = .9h ;
+  y3 = h - .5thin + vo ;
+  y4 = .8h ;
+  y5 = barht ;
+  
+  penpos1(thin, 0) ;
+  penpos2(thin, 0) ;
+  penpos3(.8thin, 90) ;
+  penpos4(1.5thin, -180) ;
+  penpos5(.5thin, -90) ;
+
+  penstroke z1e---z2e..z3e..z4e..{curl 0}z5e ;
+
+  labels(range 1 thru 5) ;
+enddef ;
+
+def draw_ay =
+  x0r = x1r = .6w ;
+  x2 = .4w ;
+  x3r = curvespace ;
+  x4 = w - curvespace ;
+
+  y0 = h + vo ;
+  y1 = .35h ;
+  y2r = - vo ;
+  y3 = .5[y2,y1] ;
+  y4 = .05h ;
+
+  z11 = z1 ;
+
+  penpos0(.8thick,0) ;
+  penpos1(.5(thick + thin), 0) ;
+  penpos2(thin, -90) ;
+  penpos3(thin, -180) ;
+  penpos11(thin, 90) ;
+  penpos4(hair, 0) ;
+
+  penstroke z0e..tension 2..z1e..tension 1.2..z2e
+  ..z3e..z11e..z4e ;
+  labels(range 0 thru 4) ;
+enddef ;
+
+def draw_ow =
+  x0 = .5w ;
+  x4 = .5w ;
+  x2 = .55w ;
+  x1 = curvespace + .9thick ;
+  x3 = curvespace + .5thick ;
+  x45 = w - curvespace - .5thin ;
+  x5 = .6[x8,x6] ;
+  x6 = .48w ;
+  x8 = w - curvespace +ho ;
+
+  y0 = h - .5hair + vo ;
+  y1 = .5[y0, y2] ;
+  y2 = .5h ;
+  y3 = .5[y2, y4] ;
+  y4 = .5thin -vo ;
+  y45 = .5h ;
+  y5 = .98h ;
+  y6 = .98h ;
+  y8 = .52h ;
+
+  z22 = z2 ;
+
+  z7 = z5 reflectedabout(z8,z6) ;
+
+  penpos0(hair,90) ;
+  penpos1(.8thick, 180) ;
+  penpos2(thin,-90) ;
+
+  penpos22(thin, 90) ;
+  penpos3(thick, 180) ;
+  penpos4(thin, -90) ;
+  penpos45(thin, 0) ;
+  penpos5(thin, 45) ;
+  penpos6(thin, 135) ;
+  penpos7(thin, 175) ;
+  penpos8(hair, -80) ;
+
+  penstroke z0e{left}..z1e..{right}z2e ;
+  penstroke z22e{left}..z3e..{right}z4e..{up}z45e..z5e..z6e..z7e..z8e ;
+  
+  labels (range 0 thru 6, 7, 8) ;
+enddef ;
+
+def draw_wu =
+  barwidth := .9thick ;
+  
+  x0 = x1 = stemspace + .5barwidth ;
+  x3 = x33 = .5[(x0 + .5barwidth),(x6 - .5thin)] ;
+  x2 = .5[(x0 + .5barwidth),(x3 - .5thin)];
+  x4 = .5[x3,x6] ;
+  x5 = x6 = w - stemspace - .5thin ;
+
+  y0 = y6 = h + vo ;
+  y1 = y5 = y33 = .2h ;
+  y3 = barht ;
+  y2 = y4 = .5thin - vo ;
+
+  penpos0(barwidth,0) ;
+  penpos1(barwidth,0) ;
+  penpos2(thin,90) ;
+  penpos3(thin,180) ;
+  penpos33(thin,180) ;
+  
+  penpos4(thin,-90) ;
+  penpos5(thin,0) ;
+  penpos6(thin,0) ;
+
+  penstroke z0e---z1e..z2e..z33e---z3e ;
+  penstroke z3e---z33e..z4e..z5e---z6e ;
+
+  labels(range 0 thru 3, 33, range 4 thru 6) ;
+enddef ;
+
+def draw_ye =
+  x0r = w - curvespace ;
+  x1 = .5w ;
+  x2 = .2w ;
+  x3r = curvespace ;
+  x4 = w - curvespace ;
+
+  y0 = h + vo ;
+  y1r = -vo ;
+  y2r = h + vo ;
+  y3 = .8h ;
+  y4 = barht ;
+
+  x11l = x1r ;
+  y11l = y1r ;
+
+  penpos0(thick, 0) ;
+  penpos1(thick, -80) ;
+
+  penstroke z0e--z1e ;
+
+  penpos11(thin, 10) ;
+  penpos2(thin, 90) ;
+  penpos3(thin, 180) ;
+  penpos4(hair, -80) ;
+
+  penstroke z11e{dir 110}..tension 1.5..{left}z2e..
+  {down}z3e..tension 1.5..{curl 0}z4e ;
+
+  z7 = .2[z1r,z0r] ;
+  z8 = z1r ;
+  
+  unfill z8--z7--(x7,-vo)--cycle ;
+  
+  labels(range 0 thru 4) ;
+enddef ;
+
+def draw_h =
+  x0l = x1l = .4w ;
+  x2 = .6w ;
+  x3l = w - curvespace ;
+  x4l = curvespace ;
+  x5 = .4[x4,x1] ;
+
+  y0 = - vo ;
+  y1 = .65h ;
+  y2l = h + vo ;
+  y3 = .5[y2,y1] ;
+  y4 = .9h ;
+  y5 = h ;
+  
+  z11 = z1 ;
+
+  penpos0(.8thick,0) ;
+  penpos1(.5(thick + thin), -10) ;
+  penpos2(thin, -90) ;
+  penpos3(thin, -180) ;
+  penpos11(thin, 90) ;
+  penpos4(hair, 0) ;
+  penpos5(hair, -45) ;
+
+  penstroke z0e..tension 1.3..z1e..tension 1.2..z2e
+  ..z3e..z11e..{up}z4e..z5e ;
+  labels(range 1 thru 5, 11) ;
+enddef ;
+
+def draw_pee =
+  x0 = 0 ;
+  x1 = w - stemspace - .4thick ;
+  
+
+  y0r = y1r = h ;
+  y2 = -vo ;
+
+  penpos0(.8thick, 60) ;
+  penpos1(.8thick, 60) ;
+
+  penstroke z0e--z1e ;
+
+  x11r = x1r ;
+  y11r = y1r ;
+  x2r = x11r ;
+
+  penpos11(thick, 30) ;
+  penpos2(thick, 30) ;
+
+  penstroke z11e--z2e ;
+  labels(range 0 thru 2) ;
+enddef ;
+
+def draw_bee =
+  stemwidth := .8thick ;
+  
+  x0r = x1r = w - stemspace ;
+  y0r = h + vo ;
+  y1l = -vo ;
+
+  penpos0(stemwidth, 10) ;
+  penpos1(stemwidth, 10) ;
+
+  penstroke z0e--z1e ;
+
+  x2 = stemspace ;
+  
+  x4 = x1 - .3stemwidth ;
+  x6 = .55w ;
+  x7 = stemspace + .5stemwidth ;
+  x8 = .5w ;
+
+  y2 = .15[y8,y6] ;
+  y4 = .85h ;
+  y6 = h - .5thin + ho ;
+  y7 = .5[y8,y6] ;
+  y8 = .5h ;
+
+  ang := angle(z4 - z2) ;
+  
+  penpos2(hair, -80) ;
+  penpos4(thin, ang) ;
+  penpos6(thin, 90) ;
+  penpos7(stemwidth, 180) ;
+  penpos8(thin, -90) ;
+  
+  penstroke z2e{curl 0}..tension 1.2..z4e..{left}z6e..z7e..{right}z8e ;
+
+  z88 = z8 ;
+
+  x9 = curvespace + .5thick ;
+  x10 = .5w ;
+  x11 = x1 ;
+
+  y9 = .5[x8,x10] ;
+  y10 = .5thin - vo ;
+  y11 = .1h ;
+
+  penpos88(thin, -90) ;
+  penpos9(thick, 0) ;
+  penpos10(thin, 90) ;
+  penpos11(thin, 110) ;
+
+  penstroke z88e{left}..z9e..{right}z10e..z11e ;
+  
+  labels(range 0 thru 8) ;
+enddef ;
+
+def draw_tee =
+  stemwidth := .8thick ;
+  
+  x0l = curvespace ;
+  x1 = .5w ;
+  x2l = x3l = w - stemspace ;
+
+  y0 = .7h ;
+  y1l = h + vo ;
+  y2 = y0 ;
+  y3 = -vo ;
+
+  penpos0(thin, 0) ;
+  penpos1(thin, -90) ;
+  penpos2(stemwidth, 180) ;
+  penpos3(stemwidth, 180) ;
+
+  penstroke z0e{up}..{right}z1e..{down}z2e--z3e ;
+
+  labels(range 0 thru 3) ;
+enddef ;
+
+def draw_dee =
+  stemwidth := .8thick ;
+  x0r = x1r = w - stemspace ;
+  y0r = h + vo ;
+  y1l = -vo ;
+
+  penpos0(stemwidth, 10) ;
+  penpos1(stemwidth, 10) ;
+
+  penstroke z0e--z1e ;
+
+  x2 = curvespace ;
+  x3 = x1 - .9stemwidth ;
+  x4 = .55w ;
+  x5 = curvespace + .5stemwidth ;
+  x6 = .5w ;
+  x7 = x1 ;
+
+  y2 = .45h ;
+  y3 = .9h ;   % was 85
+  y4 = h - .5thin + vo ;
+  y5 = .5h ;
+  y6 = .5thin - vo ;
+  y7 = .1h ;
+
+  ang := angle(z3 - z2) ;
+  
+  penpos2(hair, -90) ;
+  penpos3(thin, ang) ;
+  penpos4(thin, 90) ;
+  penpos5(stemwidth, 180) ;
+  penpos6(thin, -90) ;
+  penpos7(thin, -70) ;
+
+  penstroke z2e{dir10}..z3e..{left}z4e..tension 1.1..{down}z5e
+  ..{right}z6e..z7e ;
+  
+  labels(range 0 thru 7) ;
+enddef ;
+
+def draw_chee =
+  x0 = w - curvespace - 2thin ;
+  y0 = .8h ;
+
+  pickup pencircle scaled 4thin ;
+  drawdot z0 ;
+
+  x1l = x0 + .7thin ;
+  x2 = .5w ;
+  x3 = curvespace + .5thick ;
+  x4 = .5w ;
+  x5 = w - curvespace ;
+
+  y1l = y0 - .7thin ;
+  y2 = h - .5thin + vo ;
+  y3 = .5h ;
+  y4 = .5thin ;
+  y5 = .1h ;
+
+  penpos1(thin, -45) ;
+  penpos2(thin, 90) ;
+  penpos3(thick, 180) ;
+  penpos4(thin, -90) ;
+  penpos5(hair, -45) ;
+
+  pickup pencircle ;
+
+  penstroke z1e{dir 45}..tension 1.2..z2e..{down}z3e..z4e..z5e ;
+
+  labels(0) ;
+enddef ;
+
+def draw_jee =
+  stemwidth := .8thick ;
+  x0 = w - curvespace - 4thin ;
+  y0 = .8h ;
+
+  pickup pencircle scaled 4thin ;
+  drawdot z0 ;
+
+  x1l = x0 + .7thin ;
+  x2 = .5w ;
+  x3 = curvespace + .5stemwidth ;
+  x4 = w - curvespace - thick ;
+
+  y1l = y0 - .7thin ;
+  y2 = h - .5thin + vo ;
+  y3 = .75h ;
+  y4 = .6h ;
+
+  penpos1(thin, -45) ;
+  penpos2(thin, 90) ;
+  penpos3(stemwidth, 180) ;
+  penpos4(thin, 30) ;
+
+  pickup pencircle ;
+
+  penstroke z1e{dir 45}..tension 1.2..z2e..{down}z3e..z4e ;
+
+  x44r = x4r ;
+  y44r = y4r ;
+  x5 = .4w ;
+  y5 = -vo ;
+
+  penpos44(thick, 45) ;
+  penpos5(thick, 0) ;
+
+  penstroke z44e--z5e ;
+
+  labels(0) ;
+enddef ;
+
+def draw_kay =
+  stemwidth := thick ;
+  x1 = x2 = x5 = .5[x4l,x6l] ;
+  x3 = .5[x4,x1] ;
+  x4 = curvespace + .5stemwidth ;
+  x6 = w - curvespace - .5thin ;
+  x7 = .5[x1,x6] ;
+
+  y1 = .35h ;
+  y2 = .2h ;
+  y3 = y7 = .5thin - vo ;
+  y4 = y6 = barht ;
+  y5 = h - .5thin + vo ;
+
+  z1 = z9 ;
+  z2 = z8 ;
+
+  penpos1(hair, 0) ;
+  penpos2(thin, 0) ;
+  penpos3(thin, -90) ;
+  penpos4(stemwidth, 180) ;
+  penpos5(thin, 90) ;
+  penpos6(thin, 0) ;
+  penpos7(thin, -90) ;
+  penpos8(thin, 180) ;
+  penpos9(hair, 180) ;
+
+  penstroke z1e---z2e..tension 1.1..z3e..tension 1.2..z4e
+  ..z5e
+  ..z6e..tension 1.2..z7e..tension 1.1..z8e---z9e ;
+
+  labels(range 1 thru 9) ;
+enddef ;
+
+def draw_gay =
+  stemwidth := thick ;
+  x1 = x2 = x5 = .5[x4l,x6l] ;
+  x3 = .5[x4,x1] ;
+  x4 = curvespace + .5stemwidth ;
+  x6 = w - curvespace - .5thin ;
+  x7 = .5[x1,x6] ;
+
+  y1 = .35h ;
+  y2 = .2h ;
+  y3 = y7 = .5thin - vo ;
+  y4 = y6 = barht ;
+  y5 = h - .2hair ;
+
+  z1 = z9 ;
+  z2 = z8 ;
+
+  penpos1(hair, 0) ;
+  penpos2(thin, 0) ;
+  penpos3(thin, -90) ;
+  penpos4(stemwidth, 180) ;
+  penpos5(hair, 90) ;
+  penpos6(thin, 0) ;
+  penpos7(thin, -90) ;
+  penpos8(thin, 180) ;
+  penpos9(hair, 180) ;
+
+  penstroke z5e{left}..z4e..tension 1.2..z3e..tension 1.1
+  ..z2e---z1e ;
+
+  x10 = .49w ;
+  y10 = .97h ;
+
+  x11 = w - curvespace ;
+  y11 = .45h ;
+
+  ang := angle(z10 - z11) ;
+
+  penpos10(thin, ang) ;
+  penpos11(hair, -100) ;
+
+  penstroke z9e---z8e..tension 1.1..z7e..
+  tension 1.2..z6e..tension 1.15..{dir (ang+90)}z10e..tension 1.1..{right}z11e ;
+  
+  labels(range 1 thru 11) ;
+enddef ;
+
+def draw_ef =
+  stemwidth := .8thick ;
+  
+  x0 = x4 = x1 = stemspace + .5stemwidth ;
+  x2 = .5w ;
+  x3 = w - curvespace - .5thin ;
+
+  y0 = -vo ;
+  y4 = .5h ;
+  y1 = .8h ;
+  y2 = h - .5thin + vo ;
+  y3 = .5[y2,y4] ;
+
+  penpos0(stemwidth, 180) ;
+  penpos1(stemwidth, 180) ;
+  penpos2(thin, 90) ;
+  penpos3(thin, 0) ;
+  penpos4(hair, -90) ;
+
+  penstroke z0e---z1e..z2e..z3e..tension 1.1..{curl .5}z4e ;
+  labels(range 0 thru 4) ;
+enddef ;
+
+def draw_vee =
+  stemwidth := .9thick ;
+  
+  x0 = stemspace + .5stemwidth ;
+  x2 = x4 = .7w ;
+  x1 = w - curvespace - thin ;
+  x5 = w - curvespace - .5thin ;
+
+  y0 = barht ;
+  y1 = .7[y0,y2] ;
+  y2 = h - .5thin + vo ;
+  y4 = .5thin - vo ;
+  y5 = .7[y0,y4] ;
+
+  z3 = z6 = z0 ;
+
+  penpos0(hair, -70) ;
+  penpos1(thin, 0) ;
+  penpos2(thin, 90) ;
+  penpos3(stemwidth, 180) ;
+  penpos4(thin, -90) ;
+  penpos5(thin, 0) ;
+  penpos6(hair, 70) ;
+
+  penstroke z0e{curl .5}..tension 1.3..z1e..z2e..z3e..
+  tension 1.1..z4e
+  ..z5e..tension 1.3..{curl .5}z6e ;
+  labels(range 0 thru 6) ;
+enddef ;
+
+
+def draw_eth =
+  x0 = w;
+  x1 = stemspace + .4thick ;
+  
+
+  y0r = y1r = 0 ;
+  y2 = h + vo ;
+
+  penpos0(.8thick, 240) ;
+  penpos1(.8thick, 240) ;
+
+  penstroke z0e--z1e ;
+
+  x11r = x1r ;
+  y11r = y1r ;
+  x2r = x11r ;
+
+  penpos11(thick, -150) ;
+  penpos2(thick, -150) ;
+
+  penstroke z11e--z2e ;
+  labels(range 0 thru 2) ;
+enddef ;
+
+def draw_thee =
+  x0 = curvespace + .4thick ;
+  x1 = x2 = .5[x0l,x4l] ;
+  x4 = w - curvespace - .4thin ;
+
+  y0 = h ;
+  y1 = .55h ;
+  y2 = .5thin - vo ;
+  y4 = h ;
+
+  z3 = z1 ;
+
+  penpos0(thick, -145) ;
+  penpos1(.8thick, -145) ;
+  penpos2(thin, 90) ;
+  penpos3(thin, -35) ;
+  penpos4(hair, -35) ;
+
+  penstroke z0e---z1e..{left}z2e..z3e---z4e ;
+  %penstroke z4e..z3e..z2e..z1e..z0e ;
+
+  labels(range 0 thru 4) ;
+  
+enddef ;
+
+def draw_es =
+  x0l = stemspace + ho ;
+  x7l = stemspace ;
+  x3r = stemspace + .05w ;
+  x2 = x4 = x6 = .5w ;
+  x5l = w - stemspace ;
+  x8r = w - stemspace - ho ;
+  x1r = w - stemspace - .05w ;
+
+  y0 = y4 = y8 = barht ;
+  y3 = y1 = .8h ;
+  y7 = y5 = .2h ;
+  y2r = h + vo ;
+  y6l = -vo ;
+
+  sang := -70 ;
+
+  penpos0(hair, sang) ;
+  penpos1(thin, 0) ;
+  penpos2(thin, 90) ;
+  penpos3(thin, 180) ;
+  penpos4(thick, sang - 90) ;
+  penpos5(thin, 180) ;
+  penpos6(thin, 90) ;
+  penpos7(thin, 0) ;
+  penpos8(hair, sang) ;
+
+  penstroke z0e{dir (sang+80)}..z1e..z2e..z3e..z4e..z5e
+  ..z6e..z7e..{dir (sang+80)}z8e ;
+
+  labels(range 0 thru 8) ;
+
+enddef ;
+
+def draw_zee =
+  x0 = .9w ;
+  x1r = curvespace ;
+  x2 = .5w ;
+  x3r = w - curvespace ;
+  x4 = x1 ;
+
+  y0r = h + .7vo ;
+  y1 = .5h ;
+  y2r = -vo ;
+  y3 = .25h ;
+  y4 = y1 ;
+
+  penpos0(thin, 180) ;
+  penpos1(thick, 180) ;
+  penpos2(thin, -90) ;
+  penpos3(thin, 0) ;
+  penpos4(thin, 90) ;
+
+  penstroke z0e..tension .9..z1e..z2e..z3e..{curl .5}z4e ;
+
+  labels(range 0 thru 4) ;
+enddef ;
+
+def draw_esh =
+  stemwidth := .8thick ;
+  x0l = x1l = stemspace ;
+  y0r = h + vo ;
+  y1l = -vo ;
+
+  penpos0(stemwidth, 10) ;
+  penpos1(stemwidth, 10) ;
+
+  penstroke z0e--z1e ;
+
+  x3 = x1 ;
+  x4 = x6 = .5w ;
+  x5r = w - curvespace ;
+  x7 = x1 ;
+
+  y3 = .9h ;
+  y4r = h + vo ;
+  y5 = .5h ;
+  y6r = - vo ;
+  y7 = .1h ;
+
+  penpos3(thin, 110) ;
+  penpos4(thin, 90) ;
+  penpos5(stemwidth, 0) ;
+  penpos6(thin, -90) ;
+  penpos7(thin, -110) ;
+
+  penstroke z3e..{right}z4e..{down}z5e
+  ..{left}z6e..z7e ;
+  
+  labels(0, 1, range 3 thru 7) ;
+
+enddef ;
+
+def draw_zhee =
+  dotradius := 1.5thin ;
+  
+  x0 = .8w ;
+  x1r = x0 ;
+  x2 = .5w ;
+  x3r = .1w ;
+  x4 = .5w ;
+  x5l = w - curvespace ;
+  x6 = .5w ;
+  x7r = x8 ;
+  x8 = .2w ;
+
+  y0 = .75h ;
+  y1r = y0 - dotradius ;
+  y2r = h + vo ;
+  y3 = .5[y2,y4] ;
+  y4 = barht ;
+  y5 = .5[y4,y6] ;
+  y6l = -vo ;
+  y7l = y8 + dotradius ;
+  y8 = .27h ;;
+
+  penpos1(thin, -90) ;
+  penpos2(thin, 90) ;
+  penpos3(.5(thick + thin), 180) ;
+  penpos4(thick, -145) ;
+  penpos5(.5(thick + thin), 180) ;
+  penpos6(thin, 90) ;
+  penpos7(thin, -90) ;
+
+  pickup pencircle scaled 2dotradius ;
+  drawdot z0 ;
+  drawdot z8 ;
+  
+  pickup pencircle ;
+  penstroke z1e{dir 0}..{left}z2e..z3e..z4e
+  ..z5e..{left}z6e..{dir 0}z7e ;
+
+  labels(range 0 thru 8) ;
+enddef ;
+
+def draw_er =
+  x0 = x1 = x2 = x22 = .5w ;
+  x3r = curvespace ;
+  x4r = w - curvespace ;
+
+  y0r = h + vo ;
+  y1l = -vo ;
+  y2 = .5h ;
+  y22 = .45h ;
+  y3 = .6h ;
+  y4 = .7h ;
+
+  penpos0(.8thick, 30) ;
+  penpos1(.8thick, 30) ;
+
+  penstroke z0e--z1e ;
+
+  penpos2(thin, 0) ;
+  penpos3(thin, 180) ;
+  penpos22(thin, -90) ;
+  penpos4(hair, -55) ;
+
+  penstroke z2e{up}..{down}z3e..{right}z22e..z4e ;
+
+  labels(range 0 thru 4, 22) ;
+enddef ;
+
+def draw_el =
+  stemwidth := .8thick ;
+  
+  x0l = w - curvespace ;
+  x1 = .5w ;
+  x2l = x3l = stemspace ;
+
+  y0 = .3h ;
+  y1l = -vo ;
+  y2 = y0 ;
+  y3 = h + vo ;
+
+  penpos0(thin, 180) ;
+  penpos1(thin, 90) ;
+  penpos2(stemwidth, 0) ;
+  penpos3(stemwidth, 0) ;
+
+  penstroke z0e{down}..{left}z1e..{up}z2e--z3e ;
+
+  labels(range 0 thru 3) ;
+enddef ;
+
+def draw_em =
+  dotradius := 1.5thin ;
+  
+  x0 = .2w ;
+  y0 = .75h ;
+
+  pickup pencircle scaled 2dotradius ;
+  drawdot z0 ;
+
+  x1r = x0 ;
+  x2 = .5w ;
+  x3r = w - curvespace ;
+  x4l = .1w ;
+
+  y1r = y0 - dotradius ;
+  y2r = h + vo ;
+  y3 = .65h ;
+  y4r = -vo ;
+
+  penpos1(thin, -90) ;
+  penpos2(thin, 90) ;
+  penpos3(thick, 0) ;
+  penpos4(hair, -45) ;
+
+  pickup pencircle ;
+
+  penstroke z1e{left}..{right}z2e..{down}z3e..z4e ;
+
+  labels(range 0 thru 4) ;
+enddef ;
+
+def draw_en =
+  stemwidth := .8thick ;
+
+  x0l = x1l = stemspace ;
+  y0 = h + vo ;
+  y1l = barht - .1h ;
+
+  penpos0(stemwidth, 30) ;
+  penpos1(stemwidth, 30) ;
+  
+  penstroke z0e--z1e ;
+
+  x2r = x3r = w - stemspace ;
+  y2r = barht + .1h ;
+  y3 = -vo ;
+
+  penpos2(stemwidth, 30) ;
+  penpos3(stemwidth, 30) ;
+
+  penstroke z2e--z3e ;
+
+  x4 = x1l ;
+  y4 = y1l ;
+
+  x5 = x2r ;
+  y5 = y2r ;
+
+  penpos4(thin, 90) ;
+  penpos5(thin, 90) ;
+
+  penstroke z4e--z5e ;
+
+  labels (range 0 thru 5) ;
+enddef ;
+
+def draw_eng =
+  stemwidth := .9thick ;
+
+  x0l = x1l = stemspace ;
+  y0r = h + vo ;
+  y1l = - 1.5vo ;
+
+  penpos0(stemwidth, 0) ;
+  penpos1(stemwidth, 0) ;
+  
+  penstroke z0e--z1e ;
+
+  x2r = x3r = w - stemspace ;
+  y2r = h + vo ;
+  y3l = -vo ;
+
+  penpos2(stemwidth, 0) ;
+  penpos3(stemwidth, 0) ;
+
+  x4l = x1l ;
+  y4l = y1l ;
+
+  x5r = x2l ;
+  y5r = y2l ;
+
+  penpos4(thick, 90) ;
+  penpos5(thick, 90) ;
+
+  penstroke z4e--z5e ;
+
+  z7 = z4l ;
+  z8 = z5l ;
+
+  unfill z7--z8--(x8,y7)--cycle ;
+
+  penstroke z2e--z3e ;
+
+
+  labels (range 0 thru 5) ;
+enddef ;
+
+def draw_oi =
+  x1 = x3 = .5[x2l,x4l] ;
+  x2 = curvespace + .5thick ;
+  x4 = w - curvespace - .5thin ;
+  x5 = x6 = .5[x2l,x4l] ;
+
+  y1 = h -.5thin + vo ;
+  y2 = y4 = .5h ;
+  y3 = .5thin -vo ;
+  y5 = h ;
+  y6 = 0 ;
+
+  penpos1(thin,90) ;
+  penpos2(thick,180) ;
+  penpos3(thin,-90) ;
+  penpos4(thin,0) ;
+  
+  penstroke z1e..z2e..z3e..z4e..cycle ;
+
+  penpos5(thin, 0) ;
+  penpos6(thin, 0) ;
+  
+  penstroke z5e--z6e ;
+
+  x7 = x5 + .2w ;
+  x8 = x5 ;
+  x9 = x5 - .2w ;
+
+  y8 = .65h ;
+
+  z8 -z7 = whatever * dir -30 ;
+  z8 - z7 = z9 - z8 ;
+
+  penpos7(1.5thin, 90) ;
+  penpos8(1.2thin, 90) ;
+  penpos9(1.5thin, 90) ;
+
+  penstroke z7e--z8e--z9e ;
+  
+  labels(range 1 thru 9) ;
+enddef ;
+
+def draw_yu =
+  x0 = curvespace + 3thin ;
+  y0 = .8h ;
+
+  pickup pencircle scaled 3thin ;
+  drawdot z0 ;
+
+  x1r = x0 - 1.5thin ;
+  x2 = .6w ;
+  x3 = w - curvespace - .5thick ;
+  x4 = curvespace + .9thick ;
+
+  y1r = y0 ;
+  y2 = h - .5thin + vo ;
+  y3 = .8h ;
+  y4 = - vo ;
+
+  penpos1(thin, 135) ;
+  penpos2(thin, 90) ;
+  penpos3(thin, 0) ;
+  penpos4(thin, -45) ;
+
+  path p ;
+  p := z1..z2..z3..tension 1.9..z4 ;
+  penstroke z1e..z2e..z3e..tension 1.9..z4e ;
+
+  tim := 2.4 ;
+
+  z6 = point tim of p ;
+
+  pair vect ;
+  vect := direction tim of p ;
+
+  ang := angle(vect) ;
+
+  z6 - z5 = whatever * dir (ang - 90) ;
+  z6 - z5 = z7 - z6 ;
+
+  x5 = x6 - .2w ;
+
+  penpos5(1.2thin, ang) ;
+  penpos6(thin, ang) ;
+  penpos7(1.2thin, ang) ;
+
+  penstroke z5e--z6e--z7e ;
+
+  labels(range 0 thru 7) ;
+enddef ;

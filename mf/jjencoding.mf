@@ -1,0 +1,95 @@
+%
+%  jjencoding.mf
+%
+%  Kenneth R. Beesley
+%  Xerox Research Centre Europe
+%  6, chemin de Maupertuis
+%  38240 MEYLAN, France
+%
+%  Copyright (c) 2002.  Kenneth R. Beesley.  All Rights Reserved.
+%
+%  This encoding matches that used in John Jenkins' deseret.mf
+%  but expanded with codes for the oi and yu letters
+
+UClongi := 128 ;
+UClonge := 129 ;
+UClonga := 130 ;
+UClongaw := 131 ;
+UClongo := 132 ;
+UClongu := 133 ;
+UCshorti := 134 ;
+UCshorte := 135 ;
+UCshorta := 136 ;
+UCshortaw := 137 ;
+UCshorto := 138 ;
+UCshortu := 139 ;
+UCay:= 140 ;
+UCow:= 141 ;
+UCwu:= 142 ;
+UCye:= 143 ;
+UCh:= 144 ;
+UCpee:= 145 ;
+UCbee:= 146 ;
+UCtee:= 147 ;
+UCdee:= 148 ;
+UCchee:= 149 ;
+UCjee:= 150 ;
+UCkay:= 151 ;
+UCgay:= 152 ;
+UCef:= 153 ;
+UCvee:= 154 ;
+UCeth:= 155 ;
+UCthee:= 156 ;
+UCes:= 157 ;
+UCzee:= 158 ;
+UCesh:= 159 ;
+UCzhee:= 162 ;
+UCer:= 167 ;
+UCel:= 171 ;
+UCem:= 172 ;
+UCen:= 174 ;
+UCeng:= 175 ;
+UCoi := 176 ;  % safe?
+UCyu := 177 ;  % safe?
+
+LClongi := 180 ;
+LClonge := 182 ;
+LClonga := 183 ;
+LClongaw := 184 ;
+LClongo := 185 ;
+LClongu := 186 ;
+LCshorti := 187 ;
+LCshorte := 188 ;
+LCshorta := 189 ;
+LCshortaw := 190 ;
+LCshorto := 191 ;
+LCshortu := 192 ;
+LCay:= 193 ;
+LCow:= 203 ;
+LCwu:= 204 ;
+LCye:= 205 ;
+LCh:= 206 ;
+LCpee:= 207 ;
+LCbee:= 216 ;
+LCtee:= 217 ;
+LCdee:= 222 ;
+LCchee:= 223 ;
+LCjee:= 229 ;
+LCkay:= 230 ;
+LCgay:= 231 ;
+LCef:= 232 ;
+LCvee:= 233 ;
+LCeth:= 234 ;
+LCthee:= 235 ;
+LCes:= 236 ;
+LCzee:= 237 ;
+LCesh:= 238 ;
+LCzhee:= 239 ;
+LCer:= 241 ;
+LCel:= 242 ;
+LCem:= 243 ;
+LCen:= 244 ;
+LCeng:= 245 ;
+LCoi := 246 ;  % safe?
+LCyu := 247 ;  % safe?
+

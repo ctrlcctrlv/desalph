@@ -1,0 +1,229 @@
+%  desalphchars.mf
+%
+%  Kenneth R. Beesley
+%  19, allee des Frenes
+%  38240 MEYLAN, France
+%  beesley@wanadoo.fr
+
+%  Xerox Research Centre Europe
+%  6, chemin de Maupertuis
+%  38240 MEYLAN, France
+%  ken.beesley@xrce.xerox.com
+%
+%  Copyright (c) 2002  Kenneth R. Beesley.  All Rights Reserved.
+%
+%  variable encoding is possible; desalph.mf inputs a file like
+%  jjencodings.mf (for encodings as in John Jenkins' font)
+%  that defines the encoding for each character
+
+% input macros for desalph shapes, common to u.c. and l.c.
+% e.g. the same macro draw_longi is used for both the u.c.
+%     and the l.c. (this idea from John Jenkins' font)
+% give same width spec. to beginucdachar() and beginlcdachar--
+%     they get scaled down uniformly for the lc versions
+
+input dadrawmacros
+
+beginucdachar(UClongi,11); 
+draw_longi; endchar;
+beginlcdachar(LClongi,11); 
+draw_longi; endchar;
+
+beginucdachar(UClonge,10); 
+draw_longe; endchar;
+beginlcdachar(LClonge,10); 
+draw_longe; endchar;
+
+beginucdachar(UClonga,11); 
+	draw_longa; endchar;
+beginlcdachar(LClonga,11); 
+draw_longa; endchar;
+
+beginucdachar(UClongaw,12); 
+	draw_longaw; endchar;
+beginlcdachar(LClongaw,12); 
+draw_longaw; endchar;
+
+beginucdachar(UClongo,12); 
+	draw_longo; endchar;
+beginlcdachar(LClongo,12); 
+	draw_longo; endchar;
+
+beginucdachar(UClongu,12); 
+	draw_longu; endchar;
+beginlcdachar(LClongu,12); 
+	draw_longu; endchar;
+
+beginucdachar(UCshorti,6); 
+        draw_shorti; endchar;
+beginlcdachar(LCshorti,6); 
+ 	draw_shorti; endchar;
+
+beginucdachar(UCshorte,7); 
+        draw_shorte; endchar;
+beginlcdachar(LCshorte,7); 
+ 	draw_shorte; endchar;
+
+beginucdachar(UCshorta,6.5); 
+        draw_shorta; endchar;
+beginlcdachar(LCshorta,6.5); 
+ 	draw_shorta; endchar;
+
+beginucdachar(UCshortaw,9); 
+ 	draw_shortaw; endchar;
+beginlcdachar(LCshortaw,9); 
+ 	draw_shortaw; endchar;
+
+beginucdachar(UCshorto,7); 
+ 	draw_shorto; endchar;
+beginlcdachar(LCshorto,7); 
+ 	draw_shorto; endchar;
+
+beginucdachar(UCshortu,6.5); 
+ 	draw_shortu; endchar;
+beginlcdachar(LCshortu,6.5); 
+ 	draw_shortu; endchar;
+
+beginucdachar(UCay,8); 
+ 	draw_ay; endchar;
+beginlcdachar(LCay,8); 
+ 	draw_ay; endchar;
+
+beginucdachar(UCow,10); 
+ 	draw_ow; endchar;
+beginlcdachar(LCow,10); 
+ 	draw_ow; endchar;
+
+beginucdachar(UCwu,11); 
+ 	draw_wu; endchar;
+beginlcdachar(LCwu,11); 
+ 	draw_wu; endchar;
+
+beginucdachar(UCye,12); 
+ 	draw_ye; endchar;
+beginlcdachar(LCye,12); 
+ 	draw_ye; endchar;
+
+beginucdachar(UCh,8); 
+ 	draw_h; endchar;
+beginlcdachar(LCh,8); 
+ 	draw_h; endchar;
+
+beginucdachar(UCpee,10); 
+ 	draw_pee; endchar;
+beginlcdachar(LCpee,10); 
+ 	draw_pee; endchar;
+
+beginucdachar(UCbee,9.5); 
+ 	draw_bee; endchar;
+beginlcdachar(LCbee,9.5); 
+ 	draw_bee; endchar;
+
+beginucdachar(UCtee,8); 
+ 	draw_tee; endchar;
+beginlcdachar(LCtee,8); 
+ 	draw_tee; endchar;
+
+beginucdachar(UCdee,10); 
+ 	draw_dee; endchar;
+beginlcdachar(LCdee,10); 
+ 	draw_dee; endchar;
+
+beginucdachar(UCchee,10); 
+ 	draw_chee; endchar;
+beginlcdachar(LCchee,10); 
+ 	draw_chee; endchar;
+
+beginucdachar(UCjee,9); 
+ 	draw_jee; endchar;
+beginlcdachar(LCjee,9); 
+        draw_jee; endchar;
+
+beginucdachar(UCkay,12.5); 
+ 	draw_kay; endchar;
+beginlcdachar(LCkay,12.5); 
+ 	draw_kay; endchar;
+
+beginucdachar(UCgay,12.5); 
+ 	draw_gay; endchar;
+beginlcdachar(LCgay,12.5); 
+ 	draw_gay; endchar;
+
+beginucdachar(UCef,7.5); 
+ 	draw_ef; endchar;
+beginlcdachar(LCef,7.5); 
+ 	draw_ef; endchar;
+
+beginucdachar(UCvee,8); 
+ 	draw_vee; endchar;
+beginlcdachar(LCvee,8); 
+ 	draw_vee; endchar;
+
+beginucdachar(UCeth,10); 
+ 	draw_eth; endchar;
+beginlcdachar(LCeth,10); 
+ 	draw_eth; endchar;
+
+beginucdachar(UCthee,11); 
+ 	draw_thee; endchar;
+beginlcdachar(LCthee,11); 
+ 	draw_thee; endchar;
+
+beginucdachar(UCes,9.5); 
+ 	draw_es; endchar;
+beginlcdachar(LCes,9.5); 
+	draw_es; endchar;
+
+beginucdachar(UCzee,10); 
+ 	draw_zee; endchar;
+beginlcdachar(LCzee,10); 
+ 	draw_zee; endchar;
+
+beginucdachar(UCesh,10); 
+ 	draw_esh; endchar;
+beginlcdachar(LCesh,10); 
+ 	draw_esh; endchar;
+
+beginucdachar(UCzhee,10); 
+ 	draw_zhee; endchar;
+beginlcdachar(LCzhee,10); 
+ 	draw_zhee; endchar;
+
+beginucdachar(UCer,9); 
+ 	draw_er; endchar;
+beginlcdachar(LCer,9); 
+ 	draw_er; endchar;
+
+beginucdachar(UCel,8); 
+ 	draw_el; endchar;
+beginlcdachar(LCel,8); 
+ 	draw_el; endchar;
+
+beginucdachar(UCem,9); 
+ 	draw_em; endchar;
+beginlcdachar(LCem,9); 
+ 	draw_em; endchar;
+
+beginucdachar(UCen,6); 
+ 	draw_en; endchar;
+beginlcdachar(LCen,6); 
+ 	draw_en; endchar;
+
+beginucdachar(UCeng,11); 
+        draw_eng; endchar;
+beginlcdachar(LCeng,11); 
+ 	draw_eng; endchar;
+
+beginucdachar(UCoi,12);
+        draw_oi; endchar;
+beginlcdachar(LCoi,12);
+        draw_oi; endchar;
+
+beginucdachar(UCyu,8);
+        draw_yu; endchar;
+beginlcdachar(LCyu,8);
+        draw_yu; endchar;
+
+
+
+

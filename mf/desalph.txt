@@ -1,0 +1,40 @@
+
+desalph.mf
+
+Copyright (c) 2002 Kenneth R. Beesley.  All Rights Reserved.
+
+Saturday 23 February 2002
+
+Mission Statement: The goal of the desalph.mf project is to create a
+customizable meta-font, using METAFONT, for printing of Deseret
+Alphabet manuscripts.
+
+Inspiration: desalph.mf will not be influenced primarily by the
+38-character version of the Deseret Alphabet used to print the books
+in 1868-69; rather it will look to earlier charts and handwritten
+texts for inspiration.
+
+Applications: The first application will be to print the whole of the
+Thales H. Haskell journal, written in a 40-character version of the
+Deseret Alphabet in 1859.  desalph.mf will eventually include options,
+selectable via setting of boolean variables in the parameter file, to
+select from a variety of letter forms found in the pre-book variants
+of the alphabet.
+
+Monday 6 May 2002
+
+First version that I'd show to anyone.  At the end of the exercise, I
+felt that I was just starting to get the hang of METAFONT.
+
+
+Kenneth R. Beesley
+19, allee des Frenes
+38240 MEYLAN, France
+
+ken.beesley@xrce.xerox.fr
+beesley@wanadoo.fr
+
+
+
+
+
