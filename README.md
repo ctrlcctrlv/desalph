@@ -3,7 +3,7 @@
 ![](https://raw.githubusercontent.com/ctrlcctrlv/desalph/main/specimens/desalph.png)
 
 * © 2002–2004 Kenneth R. Beesley (METAFONT sources)
-* OpenType conversion by Fredrick R. Brennan, released under the SIL Open Font License v1.1.
+* © 2021–2024 Fredrick R. Brennan (OpenType conversion, released under the SIL Open Font License v1.1)
 
 This font was converted from METAFONT sources and released in this format with permission from Mr. Beesley.
 
